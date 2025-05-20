@@ -36,13 +36,13 @@ gem "thruster", require: false
 gem "rack-cors"
 
 # Pagination
-gem 'kaminari'
+gem "kaminari"
 
 # Serialization
-gem 'jsonapi-serializer'
+gem "jsonapi-serializer"
 
 # Redis Caching
-gem 'redis'
+gem "redis"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -54,9 +54,9 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'shoulda-matchers'
-  gem 'simplecov', require: false
-  gem 'dotenv-rails' # optional but useful
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "shoulda-matchers"
+  gem "simplecov", require: false
+  gem "dotenv-rails" # optional but useful
 end
