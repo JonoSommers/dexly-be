@@ -92,11 +92,3 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
-
-# ✅ Shoulda-Matchers configuration goes *after* the RSpec config block:
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
-  end
-end

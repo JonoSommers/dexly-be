@@ -1,11 +1,12 @@
 FactoryBot.define do
   factory :card do
-    name { "MyString" }
-    set_name { "MyString" }
-    image_url { "MyString" }
-    supertype { "MyString" }
-    subtype { "MyString" }
-    rarity { "MyString" }
-    types { "MyString" }
+    sequence(:id) { |n| "sv1-#{n}" }
+    name { "Testmon" }
+    set_name { "Test Set" }
+    image_url { "https://example.com/testmon.png" }
+    supertype { "Pokémon" }
+    subtype { "Basic" }
+    rarity { "Rare" }
+    types { "Fire" }
   end
 end

@@ -21,19 +21,30 @@ RSpec.describe "Cards API", type: :request do
                 expect(first_card).to include(:id, :type, :attributes)
                 expect(first_card[:type]).to eq("card")
                 expect(first_card[:attributes]).to include(
-                    :name,
-                    :set_name,
-                    :image_url,
-                    :supertype,
-                    :subtype,
-                    :rarity,
-                    :types
+                    id: anything,
+                    name: anything,
+                    set_name: anything,
+                    image_url: anything,
+                    supertype: anything,
+                    subtype: anything,
+                    rarity: anything,
+                    types: anything
                 )
             end
         end
 
         context "when requesting a specific page" do
             it "returns the correct set of cards for that page" do
+                get api_v1_cards_path, params: { page: "3" }
+
+                expect(response).to be_successful
+                
+                json = JSON.parse(response.body, symbolize_names: true)
+                first_card = json[:data].first
+
+                expect(json[:data].count).to eq(16)
+                expect(json[:meta]).to include(:current_page, :total_pages, :total_count)
+                expect(json[:meta][:current_page]).to eq(3)
             end
         end
 
