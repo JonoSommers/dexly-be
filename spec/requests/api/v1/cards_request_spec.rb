@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Cards API", type: :request do
     before do
+        create(:card, name: "Snorlax", set_name: "Base Set")
         create_list(:card, 50)
     end
 
@@ -55,21 +56,71 @@ RSpec.describe "Cards API", type: :request do
                 
                 json = JSON.parse(response.body, symbolize_names: true)
 
-                expect(json[:data].count).to eq(16)
-                expect(json[:meta]).to include(:current_page, :total_pages, :total_count)
-                expect(json[:meta][:current_page]).to eq(3)
+                expect(json[:data].count).to be >= 1
+                expect(json[:data].first[:attributes][:name]).to match(/Snorlax/i)
+            end
+
+            it "returns cards that partially match the name filter" do
+                get api_v1_cards_path, params: { name: "Sno" }
+
+                expect(response).to be_successful
+                
+                json = JSON.parse(response.body, symbolize_names: true)
+
+                expect(json[:data].count).to be >= 1
+                expect(json[:data].first[:attributes][:name]).to include("Sno")
             end
         end
 
         context "when a set_name filter is applied" do
             it "returns the cards from the correct set" do
+                get api_v1_cards_path, params: { set: "Base Set" }
+
+                expect(response).to be_successful
+                
+                json = JSON.parse(response.body, symbolize_names: true)
+
+                expect(json[:data].count).to be >= 1
+                expect(json[:data].first[:attributes][:set_name]).to match(/Base Set/i)
+            end
+
+            it "returns cards that partially match the set_name filter" do
+                get api_v1_cards_path, params: { set: "Bas" }
+
+                expect(response).to be_successful
+                
+                json = JSON.parse(response.body, symbolize_names: true)
+
+                expect(json[:data].count).to be >= 1
+                expect(json[:data].first[:attributes][:set_name]).to include("Bas")
             end
         end
     end
 
     describe "GET /api/v1/cards Sad Paths" do
-        context "when no cards match the filter" do
+        context "when no cards match the name filter" do
             it "returns an empty data array with status 200" do
+                get api_v1_cards_path, params: { name: "Test Name" }
+
+                expect(response).to be_successful
+                
+                json = JSON.parse(response.body, symbolize_names: true)
+
+                expect(response.status).to eq(200)
+                expect(json[:data].count).to eq(0)
+            end
+        end
+
+        context "when no cards match the set_name filter" do
+            it "returns an empty data array with status 200" do
+                get api_v1_cards_path, params: { set: "Test Set" }
+
+                expect(response).to be_successful
+                
+                json = JSON.parse(response.body, symbolize_names: true)
+
+                expect(response.status).to eq(200)
+                expect(json[:data].count).to eq(0)
             end
         end
     end

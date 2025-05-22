@@ -10,3 +10,4 @@ FactoryBot.define do
     types { ["Fire", "Water", "Grass", "Electric", "Psychic", "Dark", "Fairy", "Dragon", "Steel", nil].compact.sample }
   end
 end
+

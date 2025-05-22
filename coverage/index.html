@@ -13,7 +13,7 @@
       <img src="./assets/0.13.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2025-05-22T10:13:23-05:00">2025-05-22T10:13:23-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2025-05-22T10:38:45-05:00">2025-05-22T10:38:45-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -29,7 +29,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         23.29
+         37.56
        </span>
     </span> hits/line
     )
@@ -76,7 +76,7 @@
             <td class="cell--number">7</td>
             <td class="cell--number">7</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.71</td>
+            <td class="cell--number">6.00</td>
             
           </tr>
         
@@ -87,7 +87,7 @@
             <td class="cell--number">3</td>
             <td class="cell--number">3</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.33</td>
+            <td class="cell--number">3.33</td>
             
           </tr>
         
@@ -237,11 +237,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#8143db58e5dd74d7ba2942f968a0694ab6c41815" class="src_link" title="spec/factories/cards.rb">spec/factories/cards.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">12</td>
+            <td class="cell--number">13</td>
             <td class="cell--number">10</td>
             <td class="cell--number">10</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">201.00</td>
+            <td class="cell--number">325.80</td>
             
           </tr>
         
@@ -335,9 +335,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="3">
+          <li class="covered" data-hits="8" data-linenumber="3">
             
-              <span class="hits">2</span>
+              <span class="hits">8</span>
             
 
             
@@ -347,9 +347,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="4">
+          <li class="covered" data-hits="8" data-linenumber="4">
             
-              <span class="hits">2</span>
+              <span class="hits">8</span>
             
 
             
@@ -359,9 +359,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="5">
+          <li class="covered" data-hits="8" data-linenumber="5">
             
-              <span class="hits">2</span>
+              <span class="hits">8</span>
             
 
             
@@ -371,9 +371,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="6">
+          <li class="covered" data-hits="8" data-linenumber="6">
             
-              <span class="hits">2</span>
+              <span class="hits">8</span>
             
 
             
@@ -383,9 +383,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="7">
+          <li class="covered" data-hits="8" data-linenumber="7">
             
-              <span class="hits">2</span>
+              <span class="hits">8</span>
             
 
             
@@ -470,9 +470,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="3">
+          <li class="covered" data-hits="8" data-linenumber="3">
             
-              <span class="hits">2</span>
+              <span class="hits">8</span>
             
 
             
@@ -2994,98 +2994,98 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="251" data-linenumber="3">
+          <li class="covered" data-hits="409" data-linenumber="3">
             
-              <span class="hits">251</span>
-            
-
+              <span class="hits">409</span>
             
 
-            <code class="ruby">    sequence(:id) { |n| &quot;sv1-#{n}&quot; }</code>
+            
+
+            <code class="ruby">    sequence(:id) { |n| &quot;set#{rand(1..10)}-#{n}&quot; }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="251" data-linenumber="4">
+          <li class="covered" data-hits="401" data-linenumber="4">
             
-              <span class="hits">251</span>
-            
-
+              <span class="hits">401</span>
             
 
-            <code class="ruby">    name { &quot;Testmon&quot; }</code>
+            
+
+            <code class="ruby">    name { Faker::Games::Pokemon.name }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="251" data-linenumber="5">
+          <li class="covered" data-hits="401" data-linenumber="5">
             
-              <span class="hits">251</span>
-            
-
+              <span class="hits">401</span>
             
 
-            <code class="ruby">    set_name { &quot;Test Set&quot; }</code>
+            
+
+            <code class="ruby">    set_name { [&quot;Base Set&quot;, &quot;Jungle&quot;, &quot;Fossil&quot;, &quot;Neo Genesis&quot;, &quot;EX Team Rocket&quot;, &quot;SV Black Star&quot;].sample }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="251" data-linenumber="6">
+          <li class="covered" data-hits="409" data-linenumber="6">
             
-              <span class="hits">251</span>
-            
-
+              <span class="hits">409</span>
             
 
-            <code class="ruby">    image_url { &quot;https://example.com/testmon.png&quot; }</code>
+            
+
+            <code class="ruby">    image_url { Faker::Internet.url }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="251" data-linenumber="7">
+          <li class="covered" data-hits="409" data-linenumber="7">
             
-              <span class="hits">251</span>
-            
-
+              <span class="hits">409</span>
             
 
-            <code class="ruby">    supertype { &quot;Pokémon&quot; }</code>
+            
+
+            <code class="ruby">    supertype { [&quot;Pokémon&quot;, &quot;Trainer&quot;, &quot;Energy&quot;].sample }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="251" data-linenumber="8">
+          <li class="covered" data-hits="409" data-linenumber="8">
             
-              <span class="hits">251</span>
-            
-
+              <span class="hits">409</span>
             
 
-            <code class="ruby">    subtype { &quot;Basic&quot; }</code>
+            
+
+            <code class="ruby">    subtype { [&quot;Basic&quot;, &quot;Stage 1&quot;, &quot;Stage 2&quot;, &quot;Supporter&quot;, &quot;Item&quot;, nil].sample }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="251" data-linenumber="9">
+          <li class="covered" data-hits="409" data-linenumber="9">
             
-              <span class="hits">251</span>
-            
-
+              <span class="hits">409</span>
             
 
-            <code class="ruby">    rarity { &quot;Rare&quot; }</code>
+            
+
+            <code class="ruby">    rarity { [&quot;Common&quot;, &quot;Uncommon&quot;, &quot;Rare&quot;, &quot;Ultra Rare&quot;, &quot;Secret Rare&quot;, nil].sample }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="251" data-linenumber="10">
+          <li class="covered" data-hits="409" data-linenumber="10">
             
-              <span class="hits">251</span>
-            
-
+              <span class="hits">409</span>
             
 
-            <code class="ruby">    types { &quot;Fire&quot; }</code>
+            
+
+            <code class="ruby">    types { [&quot;Fire&quot;, &quot;Water&quot;, &quot;Grass&quot;, &quot;Electric&quot;, &quot;Psychic&quot;, &quot;Dark&quot;, &quot;Fairy&quot;, &quot;Dragon&quot;, &quot;Steel&quot;, nil].compact.sample }</code>
           </li>
         </div>
       
@@ -3106,6 +3106,16 @@
             
 
             <code class="ruby">end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="13">
+            
+
+            
+
+            <code class="ruby"></code>
           </li>
         </div>
       
