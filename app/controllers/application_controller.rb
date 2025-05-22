@@ -8,4 +8,12 @@ class ApplicationController < ActionController::API
             }
         })
     end
+
+    private
+
+    def sanitized_page
+        return 1 unless params[:page].to_s.match?(/\A\d+\z/)
+        page = params[:page].to_i
+        page > 0 ? page : 1
+    end
 end

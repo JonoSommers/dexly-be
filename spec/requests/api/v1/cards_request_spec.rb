@@ -161,5 +161,16 @@ RSpec.describe "Cards API", type: :request do
                 expect(json[:data].count).to eq(0)
             end
         end
+
+        context "when an invalid page param is provided" do
+            it "defaults to page 1" do
+                get api_v1_cards_path, params: { page: "abc" }
+
+                expect(response).to be_successful
+                json = JSON.parse(response.body, symbolize_names: true)
+
+                expect(json[:meta][:current_page]).to eq(1)
+            end
+        end
     end
 end

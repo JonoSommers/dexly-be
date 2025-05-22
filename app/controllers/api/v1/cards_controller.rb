@@ -5,7 +5,7 @@ class Api::V1::CardsController < ApplicationController
         )
         cards = cards.where("name ILIKE ?", "%#{params[:name]}%") if params[:name]
         cards = cards.where("set_name ILIKE ?", "%#{params[:set]}%") if params[:set]
-        paginated = cards.page(params[:page]).per(16)
+        paginated = cards.page(sanitized_page).per(16)
         render_with_meta(paginated, CardSerializer)
     end
 end
