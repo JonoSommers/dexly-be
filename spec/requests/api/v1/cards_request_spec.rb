@@ -40,7 +40,6 @@ RSpec.describe "Cards API", type: :request do
                 expect(response).to be_successful
                 
                 json = JSON.parse(response.body, symbolize_names: true)
-                first_card = json[:data].first
 
                 expect(json[:data].count).to eq(16)
                 expect(json[:meta]).to include(:current_page, :total_pages, :total_count)
@@ -50,6 +49,15 @@ RSpec.describe "Cards API", type: :request do
 
         context "when a name filter is applied" do
             it "returns cards matching the name" do
+                get api_v1_cards_path, params: { name: "Snorlax" }
+
+                expect(response).to be_successful
+                
+                json = JSON.parse(response.body, symbolize_names: true)
+
+                expect(json[:data].count).to eq(16)
+                expect(json[:meta]).to include(:current_page, :total_pages, :total_count)
+                expect(json[:meta][:current_page]).to eq(3)
             end
         end
 
