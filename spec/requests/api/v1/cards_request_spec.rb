@@ -23,7 +23,7 @@ RSpec.describe "Cards API", type: :request do
 
                 card_ids = json[:data].map { |c| c[:id] }
 
-                expect(card_ids).to eq(["a-1", "a-2", "a-3", "b-1", "b-2"])
+                expect(card_ids).to eq([ "a-1", "a-2", "a-3", "b-1", "b-2" ])
             end
         end
 
@@ -32,7 +32,7 @@ RSpec.describe "Cards API", type: :request do
                 get api_v1_cards_path
 
                 expect(response).to be_successful
-                
+
                 json = JSON.parse(response.body, symbolize_names: true)
                 first_card = json[:data].first
 
@@ -59,7 +59,7 @@ RSpec.describe "Cards API", type: :request do
                 get api_v1_cards_path, params: { page: "3" }
 
                 expect(response).to be_successful
-                
+
                 json = JSON.parse(response.body, symbolize_names: true)
 
                 expect(json[:data].count).to eq(16)
@@ -73,7 +73,7 @@ RSpec.describe "Cards API", type: :request do
                 get api_v1_cards_path, params: { name: "Snorlax" }
 
                 expect(response).to be_successful
-                
+
                 json = JSON.parse(response.body, symbolize_names: true)
 
                 expect(json[:data].count).to be >= 1
@@ -84,7 +84,7 @@ RSpec.describe "Cards API", type: :request do
                 get api_v1_cards_path, params: { name: "Sno" }
 
                 expect(response).to be_successful
-                
+
                 json = JSON.parse(response.body, symbolize_names: true)
 
                 expect(json[:data].count).to be >= 1
@@ -97,7 +97,7 @@ RSpec.describe "Cards API", type: :request do
                 get api_v1_cards_path, params: { set: "Base Set" }
 
                 expect(response).to be_successful
-                
+
                 json = JSON.parse(response.body, symbolize_names: true)
 
                 expect(json[:data].count).to be >= 1
@@ -108,7 +108,7 @@ RSpec.describe "Cards API", type: :request do
                 get api_v1_cards_path, params: { set: "Bas" }
 
                 expect(response).to be_successful
-                
+
                 json = JSON.parse(response.body, symbolize_names: true)
 
                 expect(json[:data].count).to be >= 1
@@ -119,7 +119,7 @@ RSpec.describe "Cards API", type: :request do
         context "when both name and set filters are applied" do
             it "returns only cards that match both conditions" do
                 Card.destroy_all
-                
+
                 create(:card, name: "Pikachu", set_name: "Jungle")
                 create(:card, name: "Pikachu", set_name: "Base Set")
                 create(:card, name: "Charizard", set_name: "Jungle")
@@ -141,7 +141,7 @@ RSpec.describe "Cards API", type: :request do
                 get api_v1_cards_path, params: { name: "Test Name" }
 
                 expect(response).to be_successful
-                
+
                 json = JSON.parse(response.body, symbolize_names: true)
 
                 expect(response.status).to eq(200)
@@ -154,7 +154,7 @@ RSpec.describe "Cards API", type: :request do
                 get api_v1_cards_path, params: { set: "Test Set" }
 
                 expect(response).to be_successful
-                
+
                 json = JSON.parse(response.body, symbolize_names: true)
 
                 expect(response.status).to eq(200)
