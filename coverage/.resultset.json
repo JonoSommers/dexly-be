@@ -1,0 +1,319 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/config/environment.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          null,
+          1
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/config/application.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/config/boot.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/config/environments/test.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/config/initializers/cors.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/config/initializers/filter_parameter_logging.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/config/initializers/inflections.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/spec/factories/binder_cards.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/spec/factories/binders.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/spec/factories/cards.rb": {
+        "lines": [
+          1,
+          1,
+          565,
+          556,
+          551,
+          570,
+          570,
+          570,
+          570,
+          570,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/spec/factories/user_binders.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/spec/factories/users.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/models/card.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/config/routes.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/controllers/api/v1/cards_controller.rb": {
+        "lines": [
+          1,
+          1,
+          11,
+          null,
+          null,
+          11,
+          11,
+          11,
+          11,
+          null,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          11,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          11,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/serializers/card_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1747931321
+  }
+}
