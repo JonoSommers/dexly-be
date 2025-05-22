@@ -7,6 +7,26 @@ RSpec.describe "Cards API", type: :request do
     end
 
     describe "GET /api/v1/cards Happy Paths" do
+        context "card ordering" do
+            it "always orders cards by set_name then card number" do
+                Card.destroy_all
+
+                create(:card, id: "b-2", set_name: "Set B")
+                create(:card, id: "a-3", set_name: "Set A")
+                create(:card, id: "a-1", set_name: "Set A")
+                create(:card, id: "b-1", set_name: "Set B")
+                create(:card, id: "a-2", set_name: "Set A")
+
+                get api_v1_cards_path
+
+                json = JSON.parse(response.body, symbolize_names: true)
+
+                card_ids = json[:data].map { |c| c[:id] }
+
+                expect(card_ids).to eq(["a-1", "a-2", "a-3", "b-1", "b-2"])
+            end
+        end
+
         context "when no params are provided" do
             it "returns the first page of cards with 16 results" do
                 get api_v1_cards_path
@@ -93,6 +113,24 @@ RSpec.describe "Cards API", type: :request do
 
                 expect(json[:data].count).to be >= 1
                 expect(json[:data].first[:attributes][:set_name]).to include("Bas")
+            end
+        end
+
+        context "when both name and set filters are applied" do
+            it "returns only cards that match both conditions" do
+                Card.destroy_all
+                
+                create(:card, name: "Pikachu", set_name: "Jungle")
+                create(:card, name: "Pikachu", set_name: "Base Set")
+                create(:card, name: "Charizard", set_name: "Jungle")
+
+                get api_v1_cards_path, params: { name: "Pikachu", set: "Jungle" }
+
+                json = JSON.parse(response.body, symbolize_names: true)
+
+                expect(json[:data].count).to eq(1)
+                expect(json[:data].first[:attributes][:name]).to eq("Pikachu")
+                expect(json[:data].first[:attributes][:set_name]).to eq("Jungle")
             end
         end
     end

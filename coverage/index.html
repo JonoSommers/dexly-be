@@ -13,7 +13,7 @@
       <img src="./assets/0.13.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2025-05-22T10:38:45-05:00">2025-05-22T10:38:45-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2025-05-22T11:04:05-05:00">2025-05-22T11:04:05-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -29,7 +29,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         37.56
+         47.24
        </span>
     </span> hits/line
     )
@@ -72,11 +72,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#1f43306aea81e77abe8def440cc77c5c1bc9fb35" class="src_link" title="app/controllers/api/v1/cards_controller.rb">app/controllers/api/v1/cards_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">9</td>
+            <td class="cell--number">11</td>
             <td class="cell--number">7</td>
             <td class="cell--number">7</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">6.00</td>
+            <td class="cell--number">7.43</td>
             
           </tr>
         
@@ -87,7 +87,7 @@
             <td class="cell--number">3</td>
             <td class="cell--number">3</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">3.33</td>
+            <td class="cell--number">4.00</td>
             
           </tr>
         
@@ -241,7 +241,7 @@
             <td class="cell--number">10</td>
             <td class="cell--number">10</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">325.80</td>
+            <td class="cell--number">411.80</td>
             
           </tr>
         
@@ -335,21 +335,41 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="8" data-linenumber="3">
+          <li class="covered" data-hits="10" data-linenumber="3">
             
-              <span class="hits">8</span>
-            
-
+              <span class="hits">10</span>
             
 
-            <code class="ruby">        cards = Card.order(:set_name).order(Arel.sql(&quot;CAST(SPLIT_PART(id, &#39;-&#39;, 2) AS INTEGER)&quot;))</code>
+            
+
+            <code class="ruby">        cards = Card.order(:set_name).order(</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="8" data-linenumber="4">
+          <li class="never" data-hits="" data-linenumber="4">
             
-              <span class="hits">8</span>
+
+            
+
+            <code class="ruby">            Arel.sql(&quot;NULLIF(regexp_replace(id, &#39;\\D&#39;, &#39;&#39;, &#39;g&#39;), &#39;&#39;)::INT NULLS LAST&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="5">
+            
+
+            
+
+            <code class="ruby">        )</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="10" data-linenumber="6">
+            
+              <span class="hits">10</span>
             
 
             
@@ -359,9 +379,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="8" data-linenumber="5">
+          <li class="covered" data-hits="10" data-linenumber="7">
             
-              <span class="hits">8</span>
+              <span class="hits">10</span>
             
 
             
@@ -371,21 +391,21 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="8" data-linenumber="6">
+          <li class="covered" data-hits="10" data-linenumber="8">
             
-              <span class="hits">8</span>
-            
-
+              <span class="hits">10</span>
             
 
-            <code class="ruby">        paginated = cards.page(params[:page]).per(params[:per_page] || 16)</code>
+            
+
+            <code class="ruby">        paginated = cards.page(params[:page]).per(16)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="8" data-linenumber="7">
+          <li class="covered" data-hits="10" data-linenumber="9">
             
-              <span class="hits">8</span>
+              <span class="hits">10</span>
             
 
             
@@ -395,7 +415,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="8">
+          <li class="never" data-hits="" data-linenumber="10">
             
 
             
@@ -405,7 +425,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="9">
+          <li class="never" data-hits="" data-linenumber="11">
             
 
             
@@ -470,9 +490,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="8" data-linenumber="3">
+          <li class="covered" data-hits="10" data-linenumber="3">
             
-              <span class="hits">8</span>
+              <span class="hits">10</span>
             
 
             
@@ -2994,9 +3014,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="409" data-linenumber="3">
+          <li class="covered" data-hits="514" data-linenumber="3">
             
-              <span class="hits">409</span>
+              <span class="hits">514</span>
             
 
             
@@ -3006,9 +3026,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="401" data-linenumber="4">
+          <li class="covered" data-hits="506" data-linenumber="4">
             
-              <span class="hits">401</span>
+              <span class="hits">506</span>
             
 
             
@@ -3018,9 +3038,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="401" data-linenumber="5">
+          <li class="covered" data-hits="501" data-linenumber="5">
             
-              <span class="hits">401</span>
+              <span class="hits">501</span>
             
 
             
@@ -3030,9 +3050,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="409" data-linenumber="6">
+          <li class="covered" data-hits="519" data-linenumber="6">
             
-              <span class="hits">409</span>
+              <span class="hits">519</span>
             
 
             
@@ -3042,9 +3062,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="409" data-linenumber="7">
+          <li class="covered" data-hits="519" data-linenumber="7">
             
-              <span class="hits">409</span>
+              <span class="hits">519</span>
             
 
             
@@ -3054,9 +3074,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="409" data-linenumber="8">
+          <li class="covered" data-hits="519" data-linenumber="8">
             
-              <span class="hits">409</span>
+              <span class="hits">519</span>
             
 
             
@@ -3066,9 +3086,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="409" data-linenumber="9">
+          <li class="covered" data-hits="519" data-linenumber="9">
             
-              <span class="hits">409</span>
+              <span class="hits">519</span>
             
 
             
@@ -3078,9 +3098,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="409" data-linenumber="10">
+          <li class="covered" data-hits="519" data-linenumber="10">
             
-              <span class="hits">409</span>
+              <span class="hits">519</span>
             
 
             
