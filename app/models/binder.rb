@@ -4,4 +4,6 @@ class Binder < ApplicationRecord
 
     has_many :binder_cards, dependent: :destroy
     has_many :cards, through: :binder_cards
+
+    validates :name, presence: true
 end

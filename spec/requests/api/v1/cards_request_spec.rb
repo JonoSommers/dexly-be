@@ -21,7 +21,7 @@ RSpec.describe "Cards API", type: :request do
 
                 json = JSON.parse(response.body, symbolize_names: true)
 
-                card_ids = json[:data].map { |c| c[:id] }
+                card_ids = json[:data].map { |card| card[:id] }
 
                 expect(card_ids).to eq([ "a-1", "a-2", "a-3", "b-1", "b-2" ])
             end
