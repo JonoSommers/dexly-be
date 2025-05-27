@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::API
+    rescue_from ActiveRecord::RecordInvalid, with: :handle_record_invalid
+    rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
+
     def render_with_meta(records, serializer)
         render json: serializer.new(records).serializable_hash.merge({
             meta: {
@@ -10,6 +13,14 @@ class ApplicationController < ActionController::API
     end
 
     private
+
+    def handle_record_invalid(error)
+        render json: { errors: error.record.errors.full_messages }, status: :unprocessable_entity
+    end
+
+    def handle_record_not_found(error)
+        render json: { errors: [ error.message ] }, status: :not_found
+    end
 
     def sanitized_page
         return 1 unless params[:page].to_s.match?(/\A\d+\z/)
