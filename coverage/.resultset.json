@@ -199,14 +199,14 @@
         "lines": [
           1,
           1,
-          565,
-          556,
-          551,
-          570,
-          570,
-          570,
-          570,
-          570,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -231,16 +231,12 @@
           null
         ]
       },
-      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/models/card.rb": {
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/models/binder_card.rb": {
         "lines": [
           1,
           1,
-          null,
-          1,
           1,
           null,
-          1,
-          1,
           1,
           1,
           null
@@ -253,85 +249,119 @@
           null
         ]
       },
-      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/config/routes.rb": {
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/spec/models/binder_spec.rb": {
         "lines": [
           1,
           null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
           1,
           1,
           null,
+          1,
+          1,
           null,
+          1,
+          1,
           null
         ]
       },
-      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/controllers/api/v1/cards_controller.rb": {
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/models/binder.rb": {
         "lines": [
           1,
           1,
-          11,
+          1,
           null,
+          1,
+          1,
           null,
-          11,
-          11,
-          11,
-          11,
-          null,
+          1,
           null
         ]
       },
-      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/controllers/application_controller.rb": {
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/spec/models/card_spec.rb": {
         "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          11,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           1,
           null,
           1,
           0,
-          null,
-          null,
-          1,
           0,
           null,
-          null,
-          1,
-          11,
-          1,
-          1,
-          null,
+          0,
+          0,
+          0,
           null
         ]
       },
-      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/serializers/card_serializer.rb": {
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/models/card.rb": {
         "lines": [
           1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/spec/models/user_binder_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          0,
+          0,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/models/user_binder.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/spec/models/user_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/models/user.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
           1,
           1,
           null
         ]
       }
     },
-    "timestamp": 1748363593
+    "timestamp": 1748364209
   }
 }

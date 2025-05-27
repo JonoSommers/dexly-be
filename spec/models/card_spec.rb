@@ -7,4 +7,7 @@ RSpec.describe Card, type: :model do
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:set_name) }
   it { should validate_presence_of(:image_url) }
+
+  it { should have_many(:binder_cards) }
+  it { should have_many(:binders).through(:binder_cards) }
 end

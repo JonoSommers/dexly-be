@@ -4,7 +4,4 @@ class UserBinder < ApplicationRecord
 
   validates :user_id, presence: true
   validates :binder_id, presence: true
-
-  it { should belong_to(:user) }
-  it { should belong_to(:binder) }
 end
