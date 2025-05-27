@@ -1,4 +1,8 @@
 class Api::V1::UsersController < ApplicationController
+    def show
+        render json: UserSerializer.new(User.find(params[:id])), status: :ok
+    end
+    
     def create
         user = User.create!(user_params)
         render json: UserSerializer.new(user), status: :created
