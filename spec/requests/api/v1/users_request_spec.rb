@@ -17,6 +17,8 @@ RSpec.describe "Users API", type: :request do
                 expect(json[:data]).to include(:id, :type, :attributes)
                 expect(json[:data][:type]).to eq("user")
                 expect(json[:data][:attributes]).to include(username: "AshKetchum")
+                expect(json[:data][:attributes]).to have_key(:binders)
+                expect(json[:data][:attributes][:binders]).to eq([])
             end
         end
     end
@@ -97,7 +99,8 @@ RSpec.describe "Users API", type: :request do
                 expect(json[:data]).to include(:id, :type, :attributes)
                 expect(json[:data][:type]).to eq("user")
                 expect(json[:data][:attributes]).to include(
-                username: user.username
+                username: user.username,
+                binders: user.binders
             )
             end
         end
