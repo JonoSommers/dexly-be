@@ -83,4 +83,36 @@ RSpec.describe "Users API", type: :request do
             end
         end
     end
+
+    describe "GET /api/v1/users/:id Happy Paths" do
+        context "when the user exists" do
+            let!(:user) { create(:user) }
+
+            it "returns the user's data" do
+                get api_v1_user_path(user.id)
+
+                expect(response).to have_http_status(:ok)
+
+                json = JSON.parse(response.body, symbolize_names: true)
+                expect(json[:data]).to include(:id, :type, :attributes)
+                expect(json[:data][:type]).to eq("user")
+                expect(json[:data][:attributes]).to include(
+                username: user.username
+            )
+            end
+        end
+    end
+
+    describe "GET /api/v1/users/:id Sad Paths" do
+        context "when the user does not exist" do
+            it "returns a 404 error with a message" do
+                get api_v1_user_path(999999)
+
+                expect(response).to have_http_status(:not_found)
+
+                json = JSON.parse(response.body, symbolize_names: true)
+                expect(json[:errors]).to eq(["Couldn't find User with 'id'=999999"])
+            end
+        end
+    end
 end
