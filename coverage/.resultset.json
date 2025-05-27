@@ -225,9 +225,9 @@
         "lines": [
           1,
           1,
-          1,
           2,
-          2,
+          3,
+          3,
           null,
           null
         ]
@@ -256,6 +256,10 @@
       "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/controllers/api/v1/users_controller.rb": {
         "lines": [
           1,
+          1,
+          2,
+          null,
+          null,
           1,
           5,
           1,
@@ -292,7 +296,7 @@
           null,
           null,
           1,
-          0,
+          1,
           null,
           null,
           1,
@@ -331,6 +335,6 @@
         ]
       }
     },
-    "timestamp": 1748365844
+    "timestamp": 1748366816
   }
 }
