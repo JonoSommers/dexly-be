@@ -8,4 +8,7 @@ class Card < ApplicationRecord
     validates :name, presence: true
     validates :set_name, presence: true
     validates :image_url, presence: true
+
+    it { should have_many(:binder_cards) }
+    it { should have_many(:binders).through(:binder_cards) }
 end

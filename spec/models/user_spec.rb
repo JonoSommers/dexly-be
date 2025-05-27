@@ -6,4 +6,7 @@ RSpec.describe User, type: :model do
 
   it { should validate_presence_of(:password) }
   it { should validate_length_of(:password).is_at_least(10) }
+
+  it { should have_many(:user_binders).dependent(:destroy) }
+  it { should have_many(:binders).through(:user_binders) }
 end
