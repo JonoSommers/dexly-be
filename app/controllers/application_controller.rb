@@ -24,7 +24,7 @@ class ApplicationController < ActionController::API
     end
 
     def handle_missing_param(error)
-        render json: { errors: [error.message] }, status: :bad_request
+        render json: { errors: [ error.message ] }, status: :bad_request
     end
 
     def sanitized_page
