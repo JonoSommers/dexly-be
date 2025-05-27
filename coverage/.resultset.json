@@ -225,84 +225,9 @@
         "lines": [
           1,
           1,
-          2,
-          3,
-          3,
-          null,
-          null
-        ]
-      },
-      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/config/routes.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/controllers/api/v1/users_controller.rb": {
-        "lines": [
-          1,
-          1,
-          2,
-          null,
-          null,
-          1,
-          5,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          5,
-          null,
-          null
-        ]
-      },
-      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          4,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
+          6,
+          6,
+          6,
           null,
           null
         ]
@@ -326,7 +251,110 @@
           null
         ]
       },
-      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/serializers/user_serializer.rb": {
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/config/routes.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/controllers/api/v1/binders_controller.rb": {
+        "lines": [
+          1,
+          1,
+          5,
+          4,
+          2,
+          null,
+          null,
+          1,
+          null,
+          1,
+          4,
+          null,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/models/user_binder.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/models/binder.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/jonosommers/Desktop/personal-projects/dexly/dexly-be/app/serializers/binder_serializer.rb": {
         "lines": [
           1,
           1,
@@ -335,6 +363,6 @@
         ]
       }
     },
-    "timestamp": 1748366816
+    "timestamp": 1748374266
   }
 }
