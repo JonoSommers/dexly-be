@@ -111,7 +111,7 @@ RSpec.describe "Users API", type: :request do
                 expect(response).to have_http_status(:not_found)
 
                 json = JSON.parse(response.body, symbolize_names: true)
-                expect(json[:errors]).to eq(["Couldn't find User with 'id'=999999"])
+                expect(json[:errors]).to eq([ "Couldn't find User with 'id'=999999" ])
             end
         end
     end
