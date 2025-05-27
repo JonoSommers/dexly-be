@@ -1,6 +1,6 @@
 class Card < ApplicationRecord
     self.primary_key = :id
-    
+
     has_many :binder_cards
     has_many :binders, through: :binder_cards
 
