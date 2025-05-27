@@ -5,6 +5,13 @@ class Api::V1::BindersController < ApplicationController
         render json: BinderSerializer.new(binder), status: :created
     end
 
+    def destroy
+        user = User.find(params[:user_id])
+        binder = user.binders.find(params[:id])
+        binder.destroy
+        head :no_content
+    end
+
     private
 
     def binder_params
