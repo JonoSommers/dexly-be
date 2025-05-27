@@ -19,7 +19,7 @@ class ApplicationController < ActionController::API
     end
 
     def handle_record_not_found(error)
-        render json: { errors: [error.message] }, status: :not_found
+        render json: { errors: [ error.message ] }, status: :not_found
     end
 
     def sanitized_page
