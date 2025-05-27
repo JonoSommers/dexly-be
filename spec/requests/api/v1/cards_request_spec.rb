@@ -31,7 +31,7 @@ RSpec.describe "Cards API", type: :request do
             it "returns the first page of cards with 16 results" do
                 get api_v1_cards_path
 
-                expect(response).to be_successful
+                expect(response).to have_http_status(:ok)
 
                 json = JSON.parse(response.body, symbolize_names: true)
                 first_card = json[:data].first
@@ -58,7 +58,7 @@ RSpec.describe "Cards API", type: :request do
             it "returns the correct set of cards for that page" do
                 get api_v1_cards_path, params: { page: "3" }
 
-                expect(response).to be_successful
+                expect(response).to have_http_status(:ok)
 
                 json = JSON.parse(response.body, symbolize_names: true)
 
@@ -72,7 +72,7 @@ RSpec.describe "Cards API", type: :request do
             it "returns cards matching the name" do
                 get api_v1_cards_path, params: { name: "Snorlax" }
 
-                expect(response).to be_successful
+                expect(response).to have_http_status(:ok)
 
                 json = JSON.parse(response.body, symbolize_names: true)
 
@@ -83,7 +83,7 @@ RSpec.describe "Cards API", type: :request do
             it "returns cards that partially match the name filter" do
                 get api_v1_cards_path, params: { name: "Sno" }
 
-                expect(response).to be_successful
+                expect(response).to have_http_status(:ok)
 
                 json = JSON.parse(response.body, symbolize_names: true)
 
@@ -96,7 +96,7 @@ RSpec.describe "Cards API", type: :request do
             it "returns the cards from the correct set" do
                 get api_v1_cards_path, params: { set: "Base Set" }
 
-                expect(response).to be_successful
+                expect(response).to have_http_status(:ok)
 
                 json = JSON.parse(response.body, symbolize_names: true)
 
@@ -107,7 +107,7 @@ RSpec.describe "Cards API", type: :request do
             it "returns cards that partially match the set_name filter" do
                 get api_v1_cards_path, params: { set: "Bas" }
 
-                expect(response).to be_successful
+                expect(response).to have_http_status(:ok)
 
                 json = JSON.parse(response.body, symbolize_names: true)
 
@@ -140,7 +140,7 @@ RSpec.describe "Cards API", type: :request do
             it "returns an empty data array with status 200" do
                 get api_v1_cards_path, params: { name: "Test Name" }
 
-                expect(response).to be_successful
+                expect(response).to have_http_status(:ok)
 
                 json = JSON.parse(response.body, symbolize_names: true)
 
@@ -153,7 +153,7 @@ RSpec.describe "Cards API", type: :request do
             it "returns an empty data array with status 200" do
                 get api_v1_cards_path, params: { set: "Test Set" }
 
-                expect(response).to be_successful
+                expect(response).to have_http_status(:ok)
 
                 json = JSON.parse(response.body, symbolize_names: true)
 
@@ -166,7 +166,7 @@ RSpec.describe "Cards API", type: :request do
             it "defaults to page 1" do
                 get api_v1_cards_path, params: { page: "abc" }
 
-                expect(response).to be_successful
+                expect(response).to have_http_status(:ok)
                 json = JSON.parse(response.body, symbolize_names: true)
 
                 expect(json[:meta][:current_page]).to eq(1)
