@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [ :show, :create ] do
         resources :binders, only: [ :create, :update, :destroy ] do
-          resources :binder_cards, only: [ :create ]
+          resources :binder_cards, only: [ :create, :destroy ]
         end
       end
       resources :cards, only: [ :index ]
