@@ -85,7 +85,7 @@ RSpec.describe "Binders API", type: :request do
         end
     end
 
-    describe "DELETE /api/v1/users/:user_id/binders/:id" do
+    describe "DELETE /api/v1/users/:user_id/binders/:id Happy Paths" do
         let!(:user) { create(:user) }
         let!(:binder) { create(:binder) }
 
@@ -93,7 +93,7 @@ RSpec.describe "Binders API", type: :request do
             UserBinder.create!(user_id: user.id, binder_id: binder.id)
         end
 
-        context "Happy Path" do
+        context "when binder exists and is associated with a user" do
             it "deletes the specified binder and returns a 204" do
                 delete api_v1_user_binder_path(user.id, binder.id)
 
@@ -101,8 +101,17 @@ RSpec.describe "Binders API", type: :request do
                 expect(Binder.find_by(id: binder.id)).to be_nil
             end
         end
+    end
 
-        context "Sad Path" do
+    describe "DELETE /api/v1/users/:user_id/binders/:id Sad Paths" do
+        let!(:user) { create(:user) }
+        let!(:binder) { create(:binder) }
+
+        before do
+            UserBinder.create!(user_id: user.id, binder_id: binder.id)
+        end
+
+        context "when a binder does not exists or user is invalid" do
             it "returns a 404 if the binder does not exist" do
                 delete api_v1_user_binder_path(user.id, 99999)
 
@@ -128,60 +137,66 @@ RSpec.describe "Binders API", type: :request do
         let!(:binder) { create(:binder) }
         let!(:user_binder) { create(:user_binder, user: user, binder: binder) }
 
-    it "updates a binder's name and/or cover_image_url" do
-        patch api_v1_user_binder_path(user.id, binder.id), params: {
-            new_name: "New Binder Name",
-            new_image: "https://new.image.url"
-        }
+        context "when valid update params are provided" do
+            it "updates a binder's name and/or cover_image_url" do
+                patch api_v1_user_binder_path(user.id, binder.id), params: {
+                    new_name: "New Binder Name",
+                    new_image: "https://new.image.url"
+                }
 
-        expect(response).to have_http_status(:ok)
+                expect(response).to have_http_status(:ok)
 
-        json = JSON.parse(response.body, symbolize_names: true)
-        expect(json[:data][:attributes][:name]).to eq("New Binder Name")
-        expect(json[:data][:attributes][:cover_image_url]).to eq("https://new.image.url")
+                json = JSON.parse(response.body, symbolize_names: true)
+                expect(json[:data][:attributes][:name]).to eq("New Binder Name")
+                expect(json[:data][:attributes][:cover_image_url]).to eq("https://new.image.url")
+            end
+        end
     end
-end
 
     describe "PATCH /api/v1/users/:user_id/binders/:id Sad Paths" do
         let!(:user) { create(:user) }
         let!(:binder) { create(:binder) }
         let!(:user_binder) { create(:user_binder, user: user, binder: binder) }
 
-        it "returns a 422 if name is blank" do
-            patch api_v1_user_binder_path(user.id, binder.id), params: { name: "" }
+        context "when update params are missing or blank" do
+            it "returns a 422 if name is blank" do
+                patch api_v1_user_binder_path(user.id, binder.id), params: { name: "" }
 
-            expect(response).to have_http_status(:unprocessable_entity)
+                expect(response).to have_http_status(:unprocessable_entity)
 
-            json = JSON.parse(response.body, symbolize_names: true)
-            expect(json[:errors].first).to match(/Name can't be blank/)
+                json = JSON.parse(response.body, symbolize_names: true)
+                expect(json[:errors].first).to match(/Name can't be blank/)
+            end
+
+            it "returns a 422 if name is missing" do
+                patch api_v1_user_binder_path(user.id, binder.id), params: { cover_image_url: "https://img.png" }
+
+                expect(response).to have_http_status(:unprocessable_entity)
+
+                json = JSON.parse(response.body, symbolize_names: true)
+                expect(json[:errors].first).to match(/Name can't be blank/)
+            end
         end
 
-        it "returns a 422 if name is missing" do
-            patch api_v1_user_binder_path(user.id, binder.id), params: { cover_image_url: "https://img.png" }
+        context "when user or binder are invalid" do
+            it "returns a 404 if binder is not associated with the user" do
+                other_user = create(:user)
+                patch api_v1_user_binder_path(other_user.id, binder.id), params: { name: "Test Binder" }
 
-            expect(response).to have_http_status(:unprocessable_entity)
+                expect(response).to have_http_status(:not_found)
 
-            json = JSON.parse(response.body, symbolize_names: true)
-            expect(json[:errors].first).to match(/Name can't be blank/)
-        end
+                json = JSON.parse(response.body, symbolize_names: true)
+                expect(json[:errors].first).to match(/Couldn't find Binder/)
+            end
 
-        it "returns a 404 if binder is not associated with the user" do
-            other_user = create(:user)
-            patch api_v1_user_binder_path(other_user.id, binder.id), params: { name: "Test Binder" }
+            it "returns a 404 if user does not exist" do
+                patch api_v1_user_binder_path(99999, binder.id), params: { name: "Ghost Binder" }
 
-            expect(response).to have_http_status(:not_found)
+                expect(response).to have_http_status(:not_found)
 
-            json = JSON.parse(response.body, symbolize_names: true)
-            expect(json[:errors].first).to match(/Couldn't find Binder/)
-        end
-
-        it "returns a 404 if user does not exist" do
-            patch api_v1_user_binder_path(99999, binder.id), params: { name: "Ghost Binder" }
-
-            expect(response).to have_http_status(:not_found)
-
-            json = JSON.parse(response.body, symbolize_names: true)
-            expect(json[:errors].first).to match(/Couldn't find User/)
+                json = JSON.parse(response.body, symbolize_names: true)
+                expect(json[:errors].first).to match(/Couldn't find User/)
+            end
         end
     end
 end
