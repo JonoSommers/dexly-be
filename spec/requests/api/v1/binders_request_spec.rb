@@ -84,4 +84,42 @@ RSpec.describe "Binders API", type: :request do
             end
         end
     end
+
+    describe "DELETE /api/v1/users/:user_id/binders/:id" do
+        let!(:user) { create(:user) }
+        let!(:binder) { create(:binder) }
+
+        before do
+            UserBinder.create!(user_id: user.id, binder_id: binder.id)
+        end
+
+        context "Happy Path" do
+            it "deletes the specified binder and returns a 204" do
+                delete api_v1_user_binder_path(user.id, binder.id)
+
+                expect(response).to have_http_status(:no_content)
+                expect(Binder.find_by(id: binder.id)).to be_nil
+            end
+        end
+
+        context "Sad Path" do
+            it "returns a 404 if the binder does not exist" do
+                delete api_v1_user_binder_path(user.id, 99999)
+
+                expect(response).to have_http_status(:not_found)
+
+                json = JSON.parse(response.body, symbolize_names: true)
+                expect(json[:errors].first).to eq("Couldn't find Binder with 'id'=99999 [WHERE \"user_binders\".\"user_id\" = $1]")
+            end
+
+            it "returns a 404 if the user is invalid" do
+                delete api_v1_user_binder_path(99999, binder.id)
+
+                expect(response).to have_http_status(:not_found)
+
+                json = JSON.parse(response.body, symbolize_names: true)
+                expect(json[:errors].first).to eq("Couldn't find User with 'id'=99999")
+            end
+        end
+    end
 end
