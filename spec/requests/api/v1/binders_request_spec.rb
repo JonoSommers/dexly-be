@@ -124,9 +124,9 @@ RSpec.describe "Binders API", type: :request do
     end
 
     describe "PATCH /api/v1/users/:user_id/binders/:id Happy Paths" do
-    let!(:user) { create(:user) }
-    let!(:binder) { create(:binder) }
-    let!(:user_binder) { create(:user_binder, user: user, binder: binder) }
+        let!(:user) { create(:user) }
+        let!(:binder) { create(:binder) }
+        let!(:user_binder) { create(:user_binder, user: user, binder: binder) }
 
     it "updates a binder's name and/or cover_image_url" do
         patch api_v1_user_binder_path(user.id, binder.id), params: {
