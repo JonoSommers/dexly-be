@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::API
     rescue_from ActiveRecord::RecordInvalid, with: :handle_record_invalid
     rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
-    rescue_from ActionController::ParameterMissing, with: :handle_missing_param
 
     def render_with_meta(records, serializer)
         render json: serializer.new(records).serializable_hash.merge({
@@ -21,10 +20,6 @@ class ApplicationController < ActionController::API
 
     def handle_record_not_found(error)
         render json: { errors: [ error.message ] }, status: :not_found
-    end
-
-    def handle_missing_param(error)
-        render json: { errors: [ error.message ] }, status: :bad_request
     end
 
     def sanitized_page

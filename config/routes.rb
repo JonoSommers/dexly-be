@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [ :show, :create ] do
-        resources :binders, only: [ :create, :update, :destroy ]
+        resources :binders, only: [ :create, :update, :destroy ] do
+          resources :binder_cards, only: [ :create, :destroy ]
+        end
       end
       resources :cards, only: [ :index ]
     end

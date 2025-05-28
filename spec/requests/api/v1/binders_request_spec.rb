@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Binders API", type: :request do
     let!(:user) { create(:user) }
+    let!(:binder) { create(:binder) }
 
     describe "POST /api/v1/users/:user_id/binders Happy Paths" do
         context "when valid parameters are provided" do
@@ -86,12 +87,7 @@ RSpec.describe "Binders API", type: :request do
     end
 
     describe "DELETE /api/v1/users/:user_id/binders/:id Happy Paths" do
-        let!(:user) { create(:user) }
-        let!(:binder) { create(:binder) }
-
-        before do
-            UserBinder.create!(user_id: user.id, binder_id: binder.id)
-        end
+        let!(:user_binder) { create(:user_binder, user: user, binder: binder) }
 
         context "when binder exists and is associated with a user" do
             it "deletes the specified binder and returns a 204" do
@@ -104,14 +100,9 @@ RSpec.describe "Binders API", type: :request do
     end
 
     describe "DELETE /api/v1/users/:user_id/binders/:id Sad Paths" do
-        let!(:user) { create(:user) }
-        let!(:binder) { create(:binder) }
+        let!(:user_binder) { create(:user_binder, user: user, binder: binder) }
 
-        before do
-            UserBinder.create!(user_id: user.id, binder_id: binder.id)
-        end
-
-        context "when a binder does not exists or user is invalid" do
+        context "when a binder does not exist or user is invalid" do
             it "returns a 404 if the binder does not exist" do
                 delete api_v1_user_binder_path(user.id, 99999)
 
@@ -133,8 +124,6 @@ RSpec.describe "Binders API", type: :request do
     end
 
     describe "PATCH /api/v1/users/:user_id/binders/:id Happy Paths" do
-        let!(:user) { create(:user) }
-        let!(:binder) { create(:binder) }
         let!(:user_binder) { create(:user_binder, user: user, binder: binder) }
 
         context "when valid update params are provided" do
@@ -154,8 +143,6 @@ RSpec.describe "Binders API", type: :request do
     end
 
     describe "PATCH /api/v1/users/:user_id/binders/:id Sad Paths" do
-        let!(:user) { create(:user) }
-        let!(:binder) { create(:binder) }
         let!(:user_binder) { create(:user_binder, user: user, binder: binder) }
 
         context "when update params are missing or blank" do

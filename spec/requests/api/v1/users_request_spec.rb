@@ -89,6 +89,8 @@ RSpec.describe "Users API", type: :request do
     describe "GET /api/v1/users/:id Happy Paths" do
         context "when the user exists" do
             let!(:user) { create(:user) }
+            let!(:binder) { create(:binder) }
+            let!(:user_binder) { create(:user_binder, user: user, binder: binder) }
 
             it "returns the user's data" do
                 get api_v1_user_path(user.id)
@@ -96,12 +98,15 @@ RSpec.describe "Users API", type: :request do
                 expect(response).to have_http_status(:ok)
 
                 json = JSON.parse(response.body, symbolize_names: true)
-                expect(json[:data]).to include(:id, :type, :attributes)
-                expect(json[:data][:type]).to eq("user")
-                expect(json[:data][:attributes]).to include(
-                username: user.username,
-                binders: user.binders
-            )
+
+                expect(json[:data][:attributes][:username]).to eq(user.username)
+                expect(json[:data][:attributes]).to have_key(:binders)
+                expect(json[:data][:attributes][:binders]).to be_an(Array)
+                expect(json[:data][:attributes][:binders].first).to include(
+                    id: binder.id,
+                    name: binder.name,
+                    cover_image_url: binder.cover_image_url
+                )
             end
         end
     end
