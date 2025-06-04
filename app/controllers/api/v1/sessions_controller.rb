@@ -4,7 +4,7 @@ class Api::V1::SessionsController < ApplicationController
         password = params[:password]
 
         unless username.present? && password.present?
-            return render json: { error: 'Username and password are required' }, status: :unauthorized
+            return render json: { error: "Username and password are required" }, status: :unauthorized
         end
 
         user = User.find_by(username: username)
@@ -12,8 +12,7 @@ class Api::V1::SessionsController < ApplicationController
             if user&.authenticate(password)
                 render json: user, status: :ok
             else
-            render json: { error: 'Invalid username or password' }, status: :unauthorized
-        end
+            render json: { error: "Invalid username or password" }, status: :unauthorized
+            end
     end
 end
-
