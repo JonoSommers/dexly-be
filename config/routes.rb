@@ -16,7 +16,7 @@ Rails.application.routes.draw do
           resources :binder_cards, only: [ :create, :destroy ]
         end
       end
-      resources :cards, only: [ :index ]
+      resources :cards, only: [ :index, :show, :destroy ]
     end
   end
 end
