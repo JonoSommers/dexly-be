@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       post "/login", to: "sessions#create"
-      resource :sessions, only: [:show, :destroy]
+      resource :sessions, only: [ :show, :destroy ]
 
       resources :users, only: [ :show, :create ] do
         resources :binders, only: [ :create, :update, :destroy ] do
