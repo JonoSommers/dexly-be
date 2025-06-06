@@ -6,10 +6,11 @@ class User < ApplicationRecord
 
     validates :username, presence: true, uniqueness: true
     validates :password, 
-        presence: true, 
+        presence: true,
+        confirmation: true, 
         length: { minimum: 10 },
         format: {
             with: VALID_PASSWORD_REGEX,
-            message: 'Password must be at least 10 characters long and include at least 1 upeercase letter, 1 number, and 1 special character (!@#$%^&*).'
+            message: 'must be at least 10 characters long and include at least an uppercase letter, a number, and a special character (!@#$%^&*).'
         }
 end

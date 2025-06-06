@@ -5,6 +5,7 @@ class Api::V1::UsersController < ApplicationController
 
     def create
         user = User.create!(user_params)
+        session[:user_id] = user.id
         render json: UserSerializer.new(user), status: :created
     end
 
